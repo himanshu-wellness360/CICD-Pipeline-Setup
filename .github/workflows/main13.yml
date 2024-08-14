@@ -22,13 +22,22 @@ jobs:
         distribution: 'adopt'
         java-version: '22'
 
-    - name: Set up Chrome and ChromeDriver
+    - name: Install Chrome
       run: |
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
+
+    - name: Get Chrome Version
+      id: chrome-version
+      run: |
         CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
-        echo "CHROME VERSION: $CHROME_VERSION"
-        curl -sS -o chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip"
+        echo "CHROME_VERSION=$CHROME_VERSION" >> $GITHUB_ENV
+
+    - name: Install ChromeDriver
+      run: |
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+        CHROMEDRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+        curl -sS -o chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/local/bin/chromedriver
         sudo chmod +x /usr/local/bin/chromedriver
@@ -40,14 +49,12 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven
 
-    # New Step: Clear Maven Cache (optional)
     - name: Clear Maven Cache
       run: mvn dependency:purge-local-repository
 
-    # Existing Step: Build and Install Dependencies
     - name: Build and Install Dependencies
       run: mvn clean install -X
-      
+
     - name: Package the Project
       run: mvn -B package --file pom.xml
 
