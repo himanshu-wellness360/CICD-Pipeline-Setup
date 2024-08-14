@@ -29,11 +29,15 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven
 
+    # New Step: Clear Maven Cache (optional)
     - name: Clear Maven Cache
       run: mvn dependency:purge-local-repository
 
+    # New Step: Update Dependencies
     - name: Update Dependencies
+      run: mvn -U clean install
 
+    # Existing Step: Build and Install Dependencies
     - name: Build and Install Dependencies
       run: mvn clean install -X
       
