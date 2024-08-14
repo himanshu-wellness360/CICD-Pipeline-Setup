@@ -39,6 +39,10 @@ public class BaseClass {
 	@BeforeMethod(alwaysRun = true)
 	public void LoginOperation() throws Exception {
 		
+		if (driver == null) {
+            throw new IllegalStateException("WebDriver instance is not initialized.");
+        }
+		
 		LoginPage LP = new LoginPage(driver);
 		String USERNAME = PU.getDataFromProperties("username");
 		String PASSWORD = PU.getDataFromProperties("password");
@@ -47,6 +51,10 @@ public class BaseClass {
 	
 	@AfterMethod(alwaysRun = true)
 	public void LogoutOperation() throws InterruptedException {
+		
+		 if (driver == null) {
+	            throw new IllegalStateException("WebDriver instance is not initialized.");
+	        }
 		HomePage  HP = new HomePage(driver);
 		Thread.sleep(5000);
 		HP.ClickonLogout();
