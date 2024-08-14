@@ -1,8 +1,6 @@
 package genericUtilities;
 
 import java.time.Duration;
-
-import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,17 +22,18 @@ public class BaseClass {
 	@BeforeClass(alwaysRun = true)
 	public void BrowserSetup() throws Exception {
 		WebDriverManager.chromedriver().setup();
-		/*ChromeOptions options = new ChromeOptions();
+		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--remote-allow-origins=*");
-		*/
+	
 		String URL = PU.getDataFromProperties("url");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get(URL);
+		System.out.println("Browser setup successful..");
 	}
 	@BeforeMethod(alwaysRun = true)
 	public void LoginOperation() throws Exception {
@@ -47,6 +46,7 @@ public class BaseClass {
 		String USERNAME = PU.getDataFromProperties("username");
 		String PASSWORD = PU.getDataFromProperties("password");
 		LP.PerformLogin(USERNAME, PASSWORD);
+		System.out.println("Login successful..");
 	}
 	
 	@AfterMethod(alwaysRun = true)
@@ -59,7 +59,7 @@ public class BaseClass {
 		HomePage  HP = new HomePage(driver);
 		Thread.sleep(5000);
 		HP.ClickonLogout();
-		System.out.println("logout successfully..");
+		System.out.println("logout successful..");
 	}
 	
 	@AfterClass(alwaysRun = true)
