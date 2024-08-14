@@ -24,14 +24,14 @@ public class BaseClass {
 	@BeforeClass(alwaysRun = true)
 	public void BrowserSetup() throws Exception {
 		WebDriverManager.chromedriver().setup();
-		ChromeOptions options = new ChromeOptions();
+		/*ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--remote-allow-origins=*");
-		
+		*/
 		String URL = PU.getDataFromProperties("url");
-		driver = new ChromeDriver(options);
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get(URL);
@@ -55,6 +55,7 @@ public class BaseClass {
 		 if (driver == null) {
 	            throw new IllegalStateException("WebDriver instance is not initialized.");
 	        }
+		 
 		HomePage  HP = new HomePage(driver);
 		Thread.sleep(5000);
 		HP.ClickonLogout();
