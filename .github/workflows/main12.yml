@@ -22,6 +22,17 @@ jobs:
         distribution: 'adopt'
         java-version: '22'
 
+    - name: Set up Chrome and ChromeDriver
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y google-chrome-stable
+        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+        echo "CHROME VERSION: $CHROME_VERSION"
+        curl -sS -o chromedriver_linux64.zip "https://chromedriver.storage.googleapis.com/$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip"
+        unzip chromedriver_linux64.zip
+        sudo mv chromedriver /usr/local/bin/chromedriver
+        sudo chmod +x /usr/local/bin/chromedriver
+
     - name: Cache Maven packages
       uses: actions/cache@v2
       with:
