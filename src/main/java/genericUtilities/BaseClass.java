@@ -2,6 +2,7 @@ package genericUtilities;
 
 import java.time.Duration;
 
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,7 +17,7 @@ import objectRepo.LoginPage;
 
 public class BaseClass {
 	
-	public static WebDriver driver;
+	protected WebDriver driver;
 	public static  PropertiesUtility PU = new PropertiesUtility();
 
 	
