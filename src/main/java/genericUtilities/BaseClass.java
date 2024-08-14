@@ -16,7 +16,7 @@ import objectRepo.LoginPage;
 
 public class BaseClass {
 	
-	public static WebDriver driver = null;
+	public static WebDriver driver;
 	public static  PropertiesUtility PU = new PropertiesUtility();
 
 	
