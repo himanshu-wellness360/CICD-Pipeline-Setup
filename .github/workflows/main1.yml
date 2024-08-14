@@ -29,7 +29,10 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-maven
 
-    - name: Build with Maven
+    - name: Build and Install Dependencies
+      run: mvn clean install -B
+      
+    - name: Package the Project
       run: mvn -B package --file pom.xml
 
     - name: Run tests
