@@ -40,7 +40,7 @@ public class HomePage {
 	@FindBy(xpath = "//a[@routerlink='/settings/settings-page']")
 	private WebElement Settings;
 
-	@FindBy(xpath = "//span[.='Logout']")
+	@FindBy(xpath = "//i[@class='topbar-icon pi pi-power-off' and //span[.='Logout']]")
 	private WebElement Logout;
 
 	//Constructor
