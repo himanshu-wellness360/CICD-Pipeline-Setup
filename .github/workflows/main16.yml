@@ -22,16 +22,22 @@ jobs:
         distribution: 'adopt'
         java-version: '22'
 
-    - name: Install Chrome
+    - name: Set up Chrome
       run: |
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
 
-    - name: Get Chrome Version
-      id: chrome-version
-      run: |
-        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
-        echo "CHROME_VERSION=$CHROME_VERSION" >> $GITHUB_ENV
+
+    #- name: Install Chrome
+      #run: |
+        #sudo apt-get update
+        #sudo apt-get install -y google-chrome-stable
+
+    #- name: Get Chrome Version
+      #id: chrome-version
+      #run: |
+        #CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+')
+        #echo "CHROME_VERSION=$CHROME_VERSION" >> $GITHUB_ENV
 
    # - name: Install ChromeDriver
       #run: |
