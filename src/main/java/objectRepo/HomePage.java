@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-	@FindBy(xpath = "//span[starts-with(@class,'ng-tns-') and .='Dashboards'] ")
+	@FindBy(xpath = "//span[starts-with(@class,'ng-tns-') and .='Dashboards']")
 	private WebElement Dashboards;
 
 	@FindBy(xpath = "//a[@ng-reflect-router-link='/dashboard/content']")

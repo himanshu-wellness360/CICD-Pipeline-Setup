@@ -1,7 +1,7 @@
 package test;
 
 import org.testng.annotations.Test;
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import genericUtilities.BaseClass;
 import objectRepo.HomePage;
 
@@ -19,7 +19,7 @@ public class Test1 extends BaseClass {
 		String ExpectedURL = "https://enpdemo.myhealthfeed.com/#/audience/members/landing";
 		String CurrentURL = driver.getCurrentUrl();
 		
-		AssertJUnit.assertEquals(ExpectedURL, CurrentURL);
+		Assert.assertEquals(ExpectedURL, CurrentURL);
 		System.out.println("test executed successfully..");
 	}
 
