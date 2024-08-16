@@ -2,32 +2,32 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-16T11:28:17 IST" name="Default suite" finished-at="2024-08-16T11:29:10 IST" duration-ms="53133">
+  <suite started-at="2024-08-16T15:45:09 IST" name="Default suite" finished-at="2024-08-16T15:46:01 IST" duration-ms="51884">
     <groups>
     </groups>
-    <test started-at="2024-08-16T11:28:17 IST" name="Default test" finished-at="2024-08-16T11:29:10 IST" duration-ms="53133">
-      <class name="test.Test2">
-        <test-method is-config="true" signature="BrowserSetup()[pri:0, instance:test.Test2@7c729a55]" started-at="2024-08-16T11:28:17 IST" name="BrowserSetup" finished-at="2024-08-16T11:28:31 IST" duration-ms="14609" status="PASS">
+    <test started-at="2024-08-16T15:45:09 IST" name="Default test" finished-at="2024-08-16T15:46:01 IST" duration-ms="51884">
+      <class name="test.Test3">
+        <test-method is-config="true" signature="BrowserSetup()[pri:0, instance:test.Test3@4567f35d]" started-at="2024-08-16T15:45:09 IST" name="BrowserSetup" finished-at="2024-08-16T15:45:41 IST" duration-ms="31815" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BrowserSetup -->
-        <test-method is-config="true" signature="LoginOperation()[pri:0, instance:test.Test2@7c729a55]" started-at="2024-08-16T11:28:31 IST" name="LoginOperation" finished-at="2024-08-16T11:28:31 IST" duration-ms="206" status="PASS">
+        <test-method is-config="true" signature="LoginOperation()[pri:0, instance:test.Test3@4567f35d]" started-at="2024-08-16T15:45:41 IST" name="LoginOperation" finished-at="2024-08-16T15:45:41 IST" duration-ms="212" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LoginOperation -->
-        <test-method signature="test2()[pri:0, instance:test.Test2@7c729a55]" started-at="2024-08-16T11:28:31 IST" name="test2" finished-at="2024-08-16T11:29:05 IST" duration-ms="33133" status="PASS">
+        <test-method signature="test3()[pri:0, instance:test.Test3@4567f35d]" started-at="2024-08-16T15:45:41 IST" name="test3" finished-at="2024-08-16T15:45:56 IST" duration-ms="14683" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test2 -->
-        <test-method is-config="true" signature="LogoutOperation()[pri:0, instance:test.Test2@7c729a55]" started-at="2024-08-16T11:29:05 IST" name="LogoutOperation" finished-at="2024-08-16T11:29:10 IST" duration-ms="5079" status="PASS">
+        </test-method> <!-- test3 -->
+        <test-method is-config="true" signature="LogoutOperation()[pri:0, instance:test.Test3@4567f35d]" started-at="2024-08-16T15:45:56 IST" name="LogoutOperation" finished-at="2024-08-16T15:46:01 IST" duration-ms="5067" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogoutOperation -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:test.Test2@7c729a55]" started-at="2024-08-16T11:29:10 IST" name="TearDown" finished-at="2024-08-16T11:29:10 IST" duration-ms="82" status="PASS">
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:test.Test3@4567f35d]" started-at="2024-08-16T15:46:01 IST" name="TearDown" finished-at="2024-08-16T15:46:01 IST" duration-ms="81" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-      </class> <!-- test.Test2 -->
+      </class> <!-- test.Test3 -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
