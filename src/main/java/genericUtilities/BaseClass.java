@@ -30,7 +30,7 @@ public class BaseClass {
 		options.addArguments("--remote-allow-origins=*");
 	
 		String URL = PU.getDataFromProperties("url");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(options);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 		driver.get(URL);
