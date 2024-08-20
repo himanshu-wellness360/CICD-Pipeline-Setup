@@ -3,6 +3,7 @@
   <groupId>CICDPipnelineSetup</groupId>
   <artifactId>CICDPipnelineSetup</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
   <dependencies>
   
   <dependency>
