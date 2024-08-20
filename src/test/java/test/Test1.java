@@ -1,6 +1,7 @@
 package test;
 
 import org.testng.annotations.Test;
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import genericUtilities.BaseClass;
 import objectRepo.HomePage;
@@ -21,6 +22,8 @@ public class Test1 extends BaseClass {
 		
 		Assert.assertEquals(ExpectedURL, CurrentURL);
 		System.out.println("test executed successfully..");
+		String element = driver.findElement(By.xpath("//td[@class='ng-star-inserted'][2]")).getText();
+		System.out.println(element);
 	}
 
 }
