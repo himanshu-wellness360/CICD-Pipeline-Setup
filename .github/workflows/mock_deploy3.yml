@@ -37,12 +37,15 @@ jobs:
       - name: Clear Maven Cache
         run: mvn dependency:purge-local-repository
 
-      - name: Build and Install Dependencies
-        run: mvn clean install -X
+     # - name: Build and Install Dependencies
+      #  run: mvn clean install -X
 
       # Step 4: Build the project using Maven
       - name: Build with Maven
-        run: mvn -B package --file pom.xml
+        run: mvn clean package
+        
+      - name: List target directory
+        run: ls -la target
 
       # Step 5: Run unit tests using Maven
       - name: Run tests with Maven
