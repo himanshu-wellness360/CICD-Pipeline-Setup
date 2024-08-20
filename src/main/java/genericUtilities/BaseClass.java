@@ -22,13 +22,13 @@ public class BaseClass {
 	@BeforeClass(alwaysRun = true)
 	public void BrowserSetup() throws Exception {
 		WebDriverManager.chromedriver().setup();
-		/*ChromeOptions options = new ChromeOptions();
+		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--headless");
 		options.addArguments("window-size=1920,1080");
 		options.addArguments("--no-sandbox");
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--remote-allow-origins=*");
-	*/
+	
 		String URL = PU.getDataFromProperties("url");
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
