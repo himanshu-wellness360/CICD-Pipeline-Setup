@@ -48,3 +48,29 @@ jobs:
           cp target/*.jar $DEPLOY_DIR/
           
           echo "Files deployed to mock server at $DEPLOY_DIR"
+
+           # Step 7: Simulate interaction with a mocked external service (e.g., API)
+      - name: Mock Interaction with External API
+        run: |
+          echo "Simulating interaction with an external service..."
+          MOCK_API_URL="http://localhost:8080/api/deploy-status"
+          echo "Sending deployment status to mock API: $MOCK_API_URL"
+          
+          # Simulate a mock API response using curl
+          RESPONSE=$(curl -s -X POST $MOCK_API_URL -d '{"status": "successful"}')
+          echo "Received mock API response: $RESPONSE"
+      # Step 8: Simulate a health check after deployment
+      - name: Mock Health Check on Server
+        run: |
+          echo "Simulating health check on the fake server..."
+          
+          # Simulate a server health check (mock check for deployed files)
+          if [ -f /tmp/fake-server/*.jar ]; then
+            echo "Health check passed! Application is up and running on mock server."
+          else
+            echo "Health check failed! Application is not deployed correctly."
+            exit 1  # Exit with failure code if health check fails
+          fi
+      # Step 9: Mock notification (optional)
+      - name: Notify Completion
+        run: echo "Mock deployment completed successfully. Notifying stakeholders..."
