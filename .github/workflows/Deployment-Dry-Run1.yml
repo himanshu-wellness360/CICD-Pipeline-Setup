@@ -58,7 +58,8 @@ jobs:
       - name: Simulate Interaction with Mock API
         run: |
         echo "Sending deployment status to mock API: http://localhost:8080/api/deploy-status"
-        RESPONSE=$(curl -s -X POST http://localhost:8080/api/deploy-status -d '{"status": "successful"}')
+        RESPONSE=$(curl -s -X POST http://localhost:8080/api/deploy-status -d '{"status": "successful"}'
+        )
         echo "Received mock API response: $RESPONSE"
       
       # Step 8: Simulate a health check after deployment
