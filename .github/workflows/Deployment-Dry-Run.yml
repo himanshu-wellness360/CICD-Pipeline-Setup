@@ -1,0 +1,30 @@
+name: CI/CD Dry Run
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 22
+        uses: actions/setup-java@v3
+        with:
+          java-version: '22'
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Run Unit Tests
+        run: mvn test
+
+      - name: Mock Deployment (Dry Run)
+         environment:staging  # Dry run in staging environment
+        run: |
+          echo "Simulating deployment to staging..."
+          mkdir -p /tmp/staging-server
+          echo "Fake server setup complete in staging."
