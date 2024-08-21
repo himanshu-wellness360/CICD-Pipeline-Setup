@@ -26,10 +26,25 @@ jobs:
       - name: Run Unit Tests
         run: mvn test
 
-      - name: Mock Deployment (Dry Run)
-         environment:staging  # Dry run in staging environment
+     # - name: Mock Deployment (Dry Run)
+        # environment:staging  # Dry run in staging environment
+        #run: |
+         # echo "Simulating deployment to staging..."
+         # mkdir -p /tmp/staging-server
+          #cp target/*.jar /tmp/staging-server/
+          #echo "Fake server setup complete in staging."
+
+
+      # Step 6: Mock the deployment process to a fake server
+      - name: Mock Deployment to Fake Server
         run: |
-          echo "Simulating deployment to staging..."
-          mkdir -p /tmp/staging-server
-          cp target/*.jar /tmp/staging-server/
-          echo "Fake server setup complete in staging."
+          echo "Starting mock deployment to fake server..."
+          
+          # Simulate transferring files to a fake server (local directory in this case)
+          DEPLOY_DIR="/tmp/fake-server"
+          echo "Creating mock server directory at $DEPLOY_DIR"
+          mkdir -p $DEPLOY_DIR
+          echo "Copying application JAR to the mock server directory..."
+          cp target/*.jar $DEPLOY_DIR/
+          
+          echo "Files deployed to mock server at $DEPLOY_DIR"
