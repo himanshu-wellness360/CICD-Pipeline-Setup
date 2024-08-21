@@ -69,16 +69,12 @@ jobs:
           
           echo "Files deployed to mock server at $DEPLOY_DIR"
 
-      # Step 7: Simulate interaction with a mocked external service (e.g., API)
-      - name: Mock Interaction with External API
+      # Step 7: Simulate without real API
+      - name: Simulate Interaction with Mock API
         run: |
-          echo "Simulating interaction with an external service..."
-          MOCK_API_URL="http://localhost:8080/api/deploy-status"
-          echo "Sending deployment status to mock API: $MOCK_API_URL"
-          
-          # Simulate a mock API response using curl
-          RESPONSE=$(curl -s -X POST $MOCK_API_URL -d '{"status": "successful"}')
-          echo "Received mock API response: $RESPONSE"
+         echo "Simulating API interaction..."
+         RESPONSE='{"status": "successful"}'
+         echo "Received simulated API response: $RESPONSE"
 
       # Step 8: Simulate a health check after deployment
       - name: Mock Health Check on Server
