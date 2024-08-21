@@ -58,8 +58,8 @@ jobs:
     - name: Clear Maven Cache
       run: mvn dependency:purge-local-repository
 
-    - name: Build and Install Dependencies
-      run: mvn clean install -X
+   # - name: Build and Install Dependencies
+     # run: mvn clean install -X
 
     - name: Package the Project
       run: mvn -B package --file pom.xml
