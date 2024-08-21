@@ -20,6 +20,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
 
+      - name: List target directory
+        run: ls -la target
+
       - name: Run Unit Tests
         run: mvn test
 
@@ -28,4 +31,5 @@ jobs:
         run: |
           echo "Simulating deployment to staging..."
           mkdir -p /tmp/staging-server
+          cp target/*.jar /tmp/fake-server/
           echo "Fake server setup complete in staging."
