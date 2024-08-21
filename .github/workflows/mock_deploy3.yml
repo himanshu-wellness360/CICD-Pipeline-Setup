@@ -44,8 +44,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean package
         
-      - name: List target directory
-        run: ls -la target
+     
 
       # Step 5: Run unit tests using Maven
       - name: Run tests with Maven
@@ -56,6 +55,10 @@ jobs:
     needs: build-and-test
 
     steps:
+
+      - name: List target directory
+        run: ls -la target
+        
       # Step 6: Mock the deployment process to a fake server
       - name: Mock Deployment to Fake Server
         run: |
