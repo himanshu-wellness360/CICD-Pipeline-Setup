@@ -31,5 +31,5 @@ jobs:
         run: |
           echo "Simulating deployment to staging..."
           mkdir -p /tmp/staging-server
-          cp target/*.jar /tmp/fake-server/
+          cp target/*.jar /tmp/staging-server/
           echo "Fake server setup complete in staging."
