@@ -82,8 +82,8 @@ public class Test3 extends BaseClass{
        Assert.assertEquals("New member was not found in the table", memberFound);
 
 */
-		
-		List<WebElement> allRows = new ArrayList<>();
+		//this is the working code
+		/*List<WebElement> allRows = new ArrayList<>();
         boolean memberFound = false;
 
         // Loop through all pages if pagination exists
@@ -126,11 +126,11 @@ public class Test3 extends BaseClass{
             }
         }
 
-        // Assert that the new member exists
-        //assert memberFound : "New member was not found in the table";
+         //Assert that the new member exists
+        assert memberFound : "New member was not found in the table";
 
-        //System.out.println("New member '" + FIRSTNAME + "' was successfully found in the table!");
-
+        System.out.println("New member '" + FIRSTNAME + "' was successfully found in the table!");
+*/
 	}
 
 }
