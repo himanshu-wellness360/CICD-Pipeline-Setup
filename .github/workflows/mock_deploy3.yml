@@ -50,11 +50,7 @@ jobs:
       - name: Run tests with Maven
         run: mvn test
 
-  mock-deploy:
-    runs-on: ubuntu-latest
-    needs: build-and-test
-
-    steps:
+ 
 
       - name: List target directory
         run: ls -la target
