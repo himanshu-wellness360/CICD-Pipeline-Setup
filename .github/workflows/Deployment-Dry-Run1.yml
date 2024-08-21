@@ -49,22 +49,18 @@ jobs:
           
           echo "Files deployed to mock server at $DEPLOY_DIR"
 
-      - name: Simulate Interaction with External Mock API
+     
+      - name: Start Mock Server
         run: |
-         MOCK_API_URL="https://api.mocki.io/v1/fake-endpoint"
-         echo "Sending deployment status to mock API: $MOCK_API_URL"
-         RESPONSE=$(curl -s -X POST $MOCK_API_URL -d '{"status": "successful"}')
-         echo "Received mock API response: $RESPONSE"
-           # Step 7: Simulate interaction with a mocked external service (e.g., API)
-      - name: Mock Interaction with External API
+         nohup python3 -m http.server 8080 &
+         sleep 5  # Give the server time to start
+
+      - name: Simulate Interaction with Mock API
         run: |
-          echo "Simulating interaction with an external service..."
-          MOCK_API_URL="http://localhost:8080/api/deploy-status"
-          echo "Sending deployment status to mock API: $MOCK_API_URL"
-          
-          # Simulate a mock API response using curl
-          RESPONSE=$(curl -s -X POST $MOCK_API_URL -d '{"status": "successful"}')
-          echo "Received mock API response: $RESPONSE"
+        echo "Sending deployment status to mock API: http://localhost:8080/api/deploy-status"
+        RESPONSE=$(curl -s -X POST http://localhost:8080/api/deploy-status -d '{"status": "successful"}')
+        echo "Received mock API response: $RESPONSE"
+      
       # Step 8: Simulate a health check after deployment
       - name: Mock Health Check on Server
         run: |
